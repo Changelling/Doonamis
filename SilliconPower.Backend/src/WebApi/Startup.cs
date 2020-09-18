@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using SilliconPower.Backend.Application;
 using SilliconPower.Backend.Application.Common.Interfaces;
 using SilliconPower.Backend.Infrastructure;
@@ -38,8 +41,9 @@ namespace WebApi
             services.AddHttpContextAccessor();
 
             services.AddControllers();
+            services.AddLogging(configure => configure.AddConsole());
+            AddSwagger(services);
 
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +53,11 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sillicon Power v1");
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -64,6 +72,26 @@ namespace WebApi
             });
 
             
+        }
+
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"Sillicon Power {groupName}",
+                    Version = groupName,
+                    Description = "Sillicon Power API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Doonamis",
+                        Email = string.Empty,
+                        Url = new Uri("https://www.doonamis.es/"),
+                    }
+                });
+            });
         }
     }
 }
