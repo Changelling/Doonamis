@@ -35,6 +35,18 @@ namespace SilliconPower.Backend.Infrastructure.Identity
             return (result.ToApplicationResult(), user.Id);
         }
 
+        public async Task<(Result Result, string UserId)> UpdateUserAsync(string userId, string name, string image)
+        {
+            ApplicationUser user = await _userManager.Users.FirstAsync(u => u.Id == userId);
+            user.Name = name;
+            user.Image = image;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            return (result.ToApplicationResult(), user.Id);
+        }
+
+
         public async Task<Result> DeleteUserAsync(string userId)
         {
             var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);

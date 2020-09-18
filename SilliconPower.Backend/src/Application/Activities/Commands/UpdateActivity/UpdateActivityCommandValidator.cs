@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SilliconPower.Backend.Application.TodoItems.Commands.UpdateTodoItem
+namespace SilliconPower.Backend.Application.Activities.Commands.UpdateActivity
 {
     public class UpdateActivityCommandValidator : AbstractValidator<UpdateActivityCommand>
     {

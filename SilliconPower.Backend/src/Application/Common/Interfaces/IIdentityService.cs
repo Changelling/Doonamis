@@ -9,6 +9,8 @@ namespace SilliconPower.Backend.Application.Common.Interfaces
 
         Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password);
 
+        Task<(Result Result, string UserId)> UpdateUserAsync(string userId, string Name, string Image);
+
         Task<Result> DeleteUserAsync(string userId);
     }
 }

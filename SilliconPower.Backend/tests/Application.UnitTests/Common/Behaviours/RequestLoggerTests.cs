@@ -1,12 +1,12 @@
 ﻿using SilliconPower.Backend.Application.Common.Behaviours;
 using SilliconPower.Backend.Application.Common.Interfaces;
-using SilliconPower.Backend.Application.TodoItems.Commands.CreateTodoItem;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Threading;
 using System.Threading.Tasks;
 using SilliconPower.Backend.Domain.ValueObjects;
+using SilliconPower.Backend.Application.Activities.Commands.CreateActivity;
 
 namespace SilliconPower.Backend.Application.UnitTests.Common.Behaviours
 {

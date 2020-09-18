@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System;
 using SilliconPower.Backend.Domain.ValueObjects;
 
-namespace SilliconPower.Backend.Application.TodoItems.Commands.CreateTodoItem
+namespace SilliconPower.Backend.Application.Activities.Commands.CreateActivity
 {
     public class CreateActivityCommand : IRequest<int>
     {

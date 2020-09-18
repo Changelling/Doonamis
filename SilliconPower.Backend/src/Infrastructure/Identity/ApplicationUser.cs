@@ -7,6 +7,9 @@ namespace SilliconPower.Backend.Infrastructure.Identity
 {
     public class ApplicationUser : IdentityUser, IUser
     {
+        public string Name { get; set; }
+        public string Image { get; set; }
+
         public ApplicationUser()
         {
             Assessments = new List<Assessment>();

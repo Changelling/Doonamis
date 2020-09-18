@@ -5,7 +5,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SilliconPower.Backend.Application.TodoItems.Commands.DeleteTodoItem
+namespace SilliconPower.Backend.Application.Activities.Commands.DeleteActivity
 {
     public class DeleteActivityCommand : IRequest
     {

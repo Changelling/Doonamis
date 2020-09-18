@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SilliconPower.Backend.Domain.ValueObjects;
 
-namespace SilliconPower.Backend.Application.TodoItems.Commands.UpdateTodoItem
+namespace SilliconPower.Backend.Application.Activities.Commands.UpdateActivity
 {
     public partial class UpdateActivityCommand : IRequest
     {
