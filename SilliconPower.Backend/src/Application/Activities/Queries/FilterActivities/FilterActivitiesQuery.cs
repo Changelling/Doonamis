@@ -37,6 +37,11 @@ namespace SilliconPower.Backend.Application.Activities.Queries.GetActivities
             return new ActivitiesVm
             {
                 Lists = await _context.Activities
+                    .Include(a => a.Assessments)
+                    .Include(a => a.Availabilities)
+                    .Include(a => a.Images)
+                    .Include(a => a.Category)
+                    .Include(a => a.Location)
                     .Where(a => a.Location.Coordinate.GetDistanceFrom(request.ReferencePoint) < request.Distance)
                     .Where(a=> a.CategoryId.Equals(request.CategoryId))
                     .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)

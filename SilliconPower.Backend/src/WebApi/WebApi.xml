@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.ActivityController.Get">
+            <summary>
+            Gets Activities.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.ActivityController.Get(System.Int32)">
+            <summary>
+            Gets Activity Details.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.ActivityController.Get(SilliconPower.Backend.Application.Activities.Queries.GetActivities.FilterActivitiesQuery)">
+            <summary>
+            Filter Activities.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.ActivityController.CreateActivity(SilliconPower.Backend.Application.Activities.Commands.CreateActivity.CreateActivityCommand)">
+            <summary>
+            Insert an activity.
+            </summary>
+            <param name="command">The activity attributes</param>
+            <returns>Created Activity Id</returns>
+        </member>
+        <member name="M:WebApi.Controllers.ActivityController.Update(System.Int32,SilliconPower.Backend.Application.Activities.Commands.UpdateActivity.UpdateActivityCommand)">
+            <summary>
+            Updates an Activity.
+            </summary>
+            <param name="id">The activity id</param>
+            <param name="command">The activity attributes</param>
+        </member>
+        <member name="M:WebApi.Controllers.ActivityController.Delete(System.Int32)">
+            <summary>
+            Delete an Activity.
+            </summary>
+            <param name="id">The activity id</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.RegisterUser(SilliconPower.Backend.Application.Users.Commands.RegisterUser.RegisterUserCommand)">
+            <summary>
+            Register an User.
+            </summary>
+            <param name="command">The booking attributes</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.GetBookings">
+            <summary>
+            Gets User Bookings.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.BookingActivity(SilliconPower.Backend.Application.Users.Commands.BookingActivity.BookingActivityCommand)">
+            <summary>
+            Booking an Activity.
+            </summary>
+            <param name="command">The booking attributes</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.CreateAssessment(SilliconPower.Backend.Application.Users.Commands.CreateAssessment.CreateAssessmentCommand)">
+            <summary>
+            Create an Assessment.
+            </summary>
+            <param name="command">The assessment attributes</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.UpdateAssessment(System.Int32,SilliconPower.Backend.Application.Users.Commands.UpdateAssessment.UpdateAssessmentCommand)">
+            <summary>
+            Update an Assessment.
+            </summary>
+            <param name="id">The assessment id</param>
+            <param name="command">The assessment attributes</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.DeleteAssessment(System.Int32)">
+            <summary>
+            Delete an Assessment.
+            </summary>
+            <param name="id">The assessment id</param>
+        </member>
+    </members>
+</doc>

@@ -11,7 +11,7 @@ namespace SilliconPower.Backend.Application.Entities
     public class ActivityDetailDto : ActivityDto, IMapFrom<Activity>
     {
         public IList<ImageDto> Images { get; set; }
-        public IList<DateTime> Availability { get; set; }
+        public IList<AvailabilityDto> Availabilities { get; set; }
         public IList<AssessmentDto> Assessments { get; set; }
 
         public new void Mapping(Profile profile)

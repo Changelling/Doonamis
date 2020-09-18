@@ -10,7 +10,10 @@ namespace SilliconPower.Backend.Domain.ValueObjects
     {
         public double Score { get; }
 
-        private Rating(double score)
+        private Rating() { 
+        }
+
+        public Rating(double score)
         {
             Score = score;
         }

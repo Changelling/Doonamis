@@ -2,6 +2,8 @@
 using SilliconPower.Backend.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using SilliconPower.Backend.Infrastructure.Identity;
 
 namespace SilliconPower.Backend.Infrastructure.Persistence.Configurations
 {
@@ -15,8 +17,8 @@ namespace SilliconPower.Backend.Infrastructure.Persistence.Configurations
                 .HasOne(assessment => assessment.Activity)
                 .WithMany(activity => activity.Assessments)
                 .HasForeignKey(assessment => assessment.ActivityId);
-            builder
-                .HasOne(assessment => assessment.User)
+            builder                
+                .HasOne(assessment => (ApplicationUser)assessment.User)
                 .WithMany(u => u.Assessments)
                 .HasForeignKey(assessment => assessment.UserId);
         }

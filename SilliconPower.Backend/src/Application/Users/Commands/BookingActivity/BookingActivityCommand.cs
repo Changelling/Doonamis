@@ -34,7 +34,7 @@ namespace SilliconPower.Backend.Application.Users.Commands.BookingActivity
         {
             var activity = await _context.Activities.FindAsync(request.ActivityId);
 
-            if (!activity.Availability.Any(date=> date.Equals(request.Date)))
+            if (activity == null || !activity.Availabilities.Any(date => date.Equals(request.Date)))
             {
                 throw new NotFoundException(nameof(Activity), request.ActivityId);
             }

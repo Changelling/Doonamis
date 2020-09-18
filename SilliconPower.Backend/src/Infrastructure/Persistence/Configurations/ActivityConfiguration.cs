@@ -38,6 +38,11 @@ namespace SilliconPower.Backend.Infrastructure.Persistence.Configurations
                 .HasMany(a => a.Bookings)
                 .WithOne(b => b.Activity)
                 .HasForeignKey(b => b.ActivityId);
+
+            builder
+                .HasMany(a => a.Availabilities)
+                .WithOne(b => b.Activity)
+                .HasForeignKey(b => b.ActivityId);
         }
     }
 }

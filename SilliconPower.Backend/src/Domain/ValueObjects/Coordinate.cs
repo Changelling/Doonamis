@@ -17,7 +17,10 @@ namespace SilliconPower.Backend.Domain.ValueObjects
 
         private const double EarthRadius = 6371;
 
-        private Coordinate(double latitude, double longitude)
+        private Coordinate() { 
+        }
+
+        public Coordinate(double latitude, double longitude)
         {
             Latitude = latitude;
             Longitude = longitude;

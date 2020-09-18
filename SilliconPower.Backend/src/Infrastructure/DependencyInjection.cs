@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SilliconPower.Backend.Infrastructure.Services;
+using SilliconPower.Backend.Domain.Entities;
 
 namespace SilliconPower.Backend.Infrastructure
 {
@@ -36,6 +37,7 @@ namespace SilliconPower.Backend.Infrastructure
 
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IUser, ApplicationUser>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();

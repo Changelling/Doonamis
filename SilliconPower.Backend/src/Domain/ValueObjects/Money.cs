@@ -11,7 +11,11 @@ namespace SilliconPower.Backend.Domain.ValueObjects
         public string Currency { get; }
         public decimal Amount { get; }
 
-        private Money(string currency, decimal amount)
+        private Money() { 
+
+        }
+
+        public Money(string currency, decimal amount)
         {
             Currency = currency;
             Amount = amount;

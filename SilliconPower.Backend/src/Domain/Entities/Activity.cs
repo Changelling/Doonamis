@@ -10,7 +10,7 @@ namespace SilliconPower.Backend.Domain.Entities
         public Activity()
         {
             Images = new List<Image>();
-            Availability = new List<DateTime>();
+            Availabilities = new List<Availability>();
             Assessments = new List<Assessment>();
             Bookings = new List<Booking>();
         }
@@ -27,7 +27,7 @@ namespace SilliconPower.Backend.Domain.Entities
         public Category Category { get; set; }
 
         public IList<Image> Images { get; set; }
-        public IList<DateTime> Availability { get; set; }
+        public IList<Availability> Availabilities { get; set; }
         public IList<Assessment> Assessments { get; set; }
         public IList<Booking> Bookings { get; set; }
     }

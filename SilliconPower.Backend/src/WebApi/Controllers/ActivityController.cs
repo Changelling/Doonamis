@@ -16,18 +16,27 @@ namespace WebApi.Controllers
     [ApiController]
     public class ActivityController : ApiController
     {
+        /// <summary>
+        /// Gets Activities.
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<ActivitiesVm>> Get()
         {
             return await Mediator.Send(new GetActivitiesQuery());
         }
 
+        /// <summary>
+        /// Gets Activity Details.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<ActivityDetailDto>> Get(int id)
         {
             return await Mediator.Send(new GetActivityQuery() { Id = id});
         }
 
+        /// <summary>
+        /// Filter Activities.
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<ActivitiesVm>> Get(FilterActivitiesQuery query)
         {
