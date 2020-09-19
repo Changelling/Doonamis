@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="command">The booking attributes</param>
         [HttpPost("register")]
-        public async Task<string> RegisterUser(RegisterUserCommand command)
+        public async Task<ActionResult<UserDto>> RegisterUser(RegisterUserCommand command)
         {
             return await Mediator.Send(command);
         }

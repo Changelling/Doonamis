@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using SilliconPower.Backend.Application.Common.Interfaces;
+using SilliconPower.Backend.Application.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace SilliconPower.Backend.Application.Users.Commands.RegisterUser
 {
-    public partial class RegisterUserCommand : IRequest<string>
+    public partial class RegisterUserCommand : IRequest<UserDto>
     {
         public string UserName { get; set; }
         public string Password { get; set; }
     }
 
-    public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, string>
+    public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, UserDto>
     {
         private readonly IIdentityService _identityService;
 
@@ -23,11 +24,11 @@ namespace SilliconPower.Backend.Application.Users.Commands.RegisterUser
             _identityService = identityService;
         }
 
-        public async Task<string> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var result = await _identityService.CreateUserAsync(request.UserName, request.Password);
 
-            return result.UserId;
+            return new UserDto() { Id = result.UserId };
         }
     }
 }

@@ -1,0 +1,30 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center;">Registrarse</mat-card-title>
+        <mat-card-content>
+            <form action="" (ngSubmit)="registerUser()" *ngIf="!submitted">
+                <mat-form-field>
+                    <input matInput placeholder="Usuario" required name="userName" [(ngModel)]="user.userName">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Contraseña" type="password" required minlength="6" name="password"
+                        required [(ngModel)]="user.password">
+                    <mat-icon matSuffix>lock</mat-icon>
+
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Contraseña" type="password" required minlength="6" name="repassword">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button type="submit" color="primary" class="login-button">
+                    Registrarse
+                </button>
+            </form>
+            <div class="success-register" *ngIf="submitted">
+                <h4>Usuario Registrado exitosamente!</h4>
+                <button mat-raised-button color="primary" (click)="newUser()">Registrar Otro Usuario</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,7 +1,0 @@
-{
-    "greeting": "Hello {{name}}!",
-    "welcome": "Welcome aboard",
-    "translation-table-tite": "Translations with parameters",
-    "current-language": "The selected language is {{lang}}"
-}
-  
