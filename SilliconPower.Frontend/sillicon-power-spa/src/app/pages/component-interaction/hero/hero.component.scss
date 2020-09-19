@@ -1,0 +1,22 @@
+div {
+    font-size: medium;
+    text-align: center;
+}
+
+.hero-id {
+    width: 25px;
+    padding-top: 5px;
+    background: rgba(48, 78, 92, 0.521);
+}
+
+.hero-name{
+    padding-top: 5px;
+    background-color: #f1f1f1;
+}
+
+.hero-action {
+    background: rgba(48, 78, 92, 0.521);
+    button {
+        margin: 5px;
+    }
+}

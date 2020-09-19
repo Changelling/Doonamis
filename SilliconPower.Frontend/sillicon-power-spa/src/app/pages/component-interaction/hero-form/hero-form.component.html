@@ -1,0 +1,21 @@
+<form nz-form [nzLayout]="'inline'" [formGroup]="heroForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-control [nzErrorTip]="combineErrorTemplate">
+            <nz-input-group nzPrefixIcon="instagram">
+                <input formControlName="heroName" nz-input placeholder="Hero Name" />
+            </nz-input-group>
+            <ng-template #combineErrorTemplate let-control>
+                <ul>
+                    <li *ngIf="control.hasError('minlength')"> MinLength is 6 </li>
+                    <li *ngIf="control.hasError('containCharacter')">The hero name not contains: SPA-, prefix.</li>
+                    <li *ngIf="control.hasError('required')">Input is required</li>
+                </ul>               
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+        <button nz-button nzType="primary" [disabled]="!heroForm.valid">{{ 'add' | translate}}</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

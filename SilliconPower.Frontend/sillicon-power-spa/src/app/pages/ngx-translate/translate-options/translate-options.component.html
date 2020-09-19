@@ -1,0 +1,16 @@
+
+<nz-list nzBordered nzSize="small">
+    <nz-list-item>
+        <h4>translation pipe</h4>
+        <p>{{ 'greeting' | translate:{'name':'Developer'} }}</p>
+    </nz-list-item>
+    <nz-list-item>
+        <h4>directive (key as attribute)</h4>
+        <p [translate]="'greeting'" [translateParams]="{name: 'Developer'}"></p>
+    </nz-list-item>
+    <nz-list-item>
+        <h4>directive (key as content of element)</h4>
+        <p translate [translateParams]="{name: 'Developer'}">greeting</p>
+    </nz-list-item>
+    <nz-list-footer>ngx-translate options</nz-list-footer>
+</nz-list>

@@ -1,0 +1,13 @@
+<hero-form></hero-form>
+
+<br/>
+<br/>
+
+<ul>
+    <li *ngFor="let hero of heroes">
+        <hero
+            [model]= "hero"
+            (heroDeleted)="onHeroActionClicked($any($event))">
+        </hero>
+    </li>
+</ul>

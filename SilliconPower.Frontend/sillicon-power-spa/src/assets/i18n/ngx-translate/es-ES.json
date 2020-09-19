@@ -1,0 +1,7 @@
+{
+    "greeting": "Hola {{name}}!",
+    "welcome": "Bienvenido a bordo",
+    "translation-table-tite": "Traducciones con parámetros",
+    "current-language": "El lenguaje seleccionado es {{lang}}"
+}
+  

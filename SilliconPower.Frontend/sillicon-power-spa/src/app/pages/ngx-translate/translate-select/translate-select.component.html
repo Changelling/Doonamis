@@ -1,0 +1,6 @@
+
+<p [translate]="'current-language'" [translateParams]="{lang: selectedLanguage?.lang}"></p>
+
+<nz-select [(ngModel)]="selectedLanguage" [compareWith]="compareFn" (ngModelChange)="changeLang($event)" nzPlaceHolder="Choose">
+  <nz-option *ngFor="let option of optionList" [nzValue]="option" [nzLabel]="option.lang"></nz-option>
+</nz-select>
