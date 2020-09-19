@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         /// Gets Activities.
         /// </summary>
         [HttpGet]
-        public async Task<ActionResult<ActivitiesVm>> Get()
+        public async Task<ActionResult<ActivitiesVm>> GetAll()
         {
             return await Mediator.Send(new GetActivitiesQuery());
         }
@@ -37,8 +37,8 @@ namespace WebApi.Controllers
         /// <summary>
         /// Filter Activities.
         /// </summary>
-        [HttpGet]
-        public async Task<ActionResult<ActivitiesVm>> Get(FilterActivitiesQuery query)
+        [HttpGet("filter")]
+        public async Task<ActionResult<ActivitiesVm>> Filter([FromQuery] FilterActivitiesQuery query)
         {
             return await Mediator.Send(query);
         }

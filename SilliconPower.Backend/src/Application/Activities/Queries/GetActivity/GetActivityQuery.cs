@@ -37,7 +37,7 @@ namespace SilliconPower.Backend.Application.Activities.Queries.GetActivity
                 throw new NotFoundException(nameof(Activity), request.Id);
             }
 
-            return _mapper.Map<ActivityDetailDto>(entity); ;
+            return _mapper.Map<ActivityDetailDto>(entity);
         }
     }
 }

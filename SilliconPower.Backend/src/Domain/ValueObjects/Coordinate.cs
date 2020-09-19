@@ -2,6 +2,7 @@
 using SilliconPower.Backend.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace SilliconPower.Backend.Domain.ValueObjects
@@ -37,8 +38,8 @@ namespace SilliconPower.Backend.Domain.ValueObjects
             try
             {
                 var position = coordinates.Split(",");
-                var latitude = double.Parse(position[0]);
-                var longitude = double.Parse(position[1]);
+                var latitude = double.Parse(position[0], CultureInfo.InvariantCulture);
+                var longitude = double.Parse(position[1], CultureInfo.InvariantCulture);
                 return new Coordinate(latitude, longitude);
             }
             catch (Exception ex)

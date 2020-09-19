@@ -4,7 +4,7 @@
         <name>WebApi</name>
     </assembly>
     <members>
-        <member name="M:WebApi.Controllers.ActivityController.Get">
+        <member name="M:WebApi.Controllers.ActivityController.GetAll">
             <summary>
             Gets Activities.
             </summary>
@@ -14,7 +14,7 @@
             Gets Activity Details.
             </summary>
         </member>
-        <member name="M:WebApi.Controllers.ActivityController.Get(SilliconPower.Backend.Application.Activities.Queries.GetActivities.FilterActivitiesQuery)">
+        <member name="M:WebApi.Controllers.ActivityController.Filter(SilliconPower.Backend.Application.Activities.Queries.GetActivities.FilterActivitiesQuery)">
             <summary>
             Filter Activities.
             </summary>

@@ -10,7 +10,7 @@ namespace SilliconPower.Backend.Application.Entities
     public class AvailabilityDto : IMapFrom<Availability>
     {
         public int Id { get; set; }
-        public string Url { get; set; }
+        public DateTime Date { get; set; }
 
         public void Mapping(Profile profile)
         {

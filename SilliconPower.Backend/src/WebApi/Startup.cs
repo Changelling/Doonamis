@@ -64,6 +64,7 @@ namespace WebApi
 
             app.UseHealthChecks("/health");
             app.UseAuthentication();
+            app.UseIdentityServer();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

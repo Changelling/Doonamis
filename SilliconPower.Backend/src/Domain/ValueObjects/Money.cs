@@ -8,14 +8,14 @@ namespace SilliconPower.Backend.Domain.ValueObjects
 {
     public class Money : ValueObject
     {
-        public string Currency { get; }
-        public decimal Amount { get; }
+        public string Currency { get; private set; }
+        public double Amount { get; private set; }
 
         private Money() { 
 
         }
 
-        public Money(string currency, decimal amount)
+        public Money(string currency, double amount)
         {
             Currency = currency;
             Amount = amount;
@@ -32,7 +32,7 @@ namespace SilliconPower.Backend.Domain.ValueObjects
             try
             {
                 var money = moneyStr.Split(" ");
-                var ammount = decimal.Parse(money[0]);
+                var ammount = double.Parse(money[0]);
                 var currency = money[1];
                 return new Money(currency, ammount);
             }

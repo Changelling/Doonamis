@@ -8,7 +8,7 @@ namespace SilliconPower.Backend.Domain.ValueObjects
 {
     public class Rating : ValueObject
     {
-        public double Score { get; }
+        public double Score { get; private set; }
 
         private Rating() { 
         }

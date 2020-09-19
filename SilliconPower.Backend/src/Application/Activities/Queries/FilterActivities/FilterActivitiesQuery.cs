@@ -16,7 +16,7 @@ namespace SilliconPower.Backend.Application.Activities.Queries.GetActivities
 {
     public class FilterActivitiesQuery : IRequest<ActivitiesVm>
     {
-        public Coordinate ReferencePoint { get; set; }
+        public string ReferencePoint { get; set; }
         public double Distance { get; set; }
         public int CategoryId { get; set; }
     }
@@ -34,19 +34,17 @@ namespace SilliconPower.Backend.Application.Activities.Queries.GetActivities
 
         public async Task<ActivitiesVm> Handle(FilterActivitiesQuery request, CancellationToken cancellationToken)
         {
+            Coordinate rp = (Coordinate)request.ReferencePoint;
             return new ActivitiesVm
             {
-                Lists = await _context.Activities
-                    .Include(a => a.Assessments)
-                    .Include(a => a.Availabilities)
-                    .Include(a => a.Images)
+                Lists =  _context.Activities
+                    .Include(a=> a.Location)
                     .Include(a => a.Category)
-                    .Include(a => a.Location)
-                    .Where(a => a.Location.Coordinate.GetDistanceFrom(request.ReferencePoint) < request.Distance)
+                    .AsEnumerable()
+                    .Where(a => a.Location.Coordinate.GetDistanceFrom(rp) < request.Distance)
                     .Where(a=> a.CategoryId.Equals(request.CategoryId))
-                    .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
-                    .OrderBy(activity => activity.Name)
-                    .ToListAsync(cancellationToken)
+                    .Select(a=> _mapper.Map<ActivityDto>(a))
+                    .OrderBy(activity => activity.Name).ToList()
             };
         }
     }

@@ -32,7 +32,7 @@ namespace SilliconPower.Backend.Application.Activities.Queries.GetActivities
         {
             return new ActivitiesVm
             {
-                Lists = await _context.Activities
+                Lists = await _context.Activities.AsNoTracking()
                     .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
                     .OrderBy(activity => activity.Name)
                     .ToListAsync(cancellationToken)

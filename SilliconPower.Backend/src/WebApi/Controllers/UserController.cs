@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         /// Register an User.
         /// </summary>
         /// <param name="command">The booking attributes</param>
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<string> RegisterUser(RegisterUserCommand command)
         {
             return await Mediator.Send(command);
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         /// <summary>
         /// Gets User Bookings.
         /// </summary>
-        [HttpGet]
+        [HttpGet("bookings")]
         public async Task<ActionResult<BookingsVm>> GetBookings()
         {
             return await Mediator.Send(new GetBookingsQuery());
@@ -40,7 +40,7 @@ namespace WebApi.Controllers
         /// Booking an Activity.
         /// </summary>
         /// <param name="command">The booking attributes</param>
-        [HttpPost]
+        [HttpPost("booking")]
         public async Task<int> BookingActivity(BookingActivityCommand command)
         {
             return await Mediator.Send(command);
@@ -50,7 +50,7 @@ namespace WebApi.Controllers
         /// Create an Assessment.
         /// </summary>
         /// <param name="command">The assessment attributes</param>
-        [HttpPost]
+        [HttpPost("assessment")]
         public async Task<int> CreateAssessment(CreateAssessmentCommand command)
         {
             return await Mediator.Send(command);
@@ -61,7 +61,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">The assessment id</param>
         /// <param name="command">The assessment attributes</param>
-        [HttpPut("{id}")]
+        [HttpPut("assessment/{id}")]
         public async Task<ActionResult> UpdateAssessment(int id, UpdateAssessmentCommand command)
         {
             if (id != command.Id)
@@ -78,7 +78,7 @@ namespace WebApi.Controllers
         /// Delete an Assessment.
         /// </summary>
         /// <param name="id">The assessment id</param>
-        [HttpDelete("{id}")]
+        [HttpDelete("assessment/{id}")]
         public async Task<ActionResult> DeleteAssessment(int id)
         {
             await Mediator.Send(new DeleteAssessmentCommand { Id = id });
