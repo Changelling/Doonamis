@@ -2,20 +2,30 @@
     <mat-card class="mat-elevation-z12">
         <mat-card-title style="text-align:center;">Registrarse</mat-card-title>
         <mat-card-content>
-            <form action="" (ngSubmit)="registerUser()" *ngIf="!submitted">
+            <form [formGroup]="registrationForm" (ngSubmit)="registerUser()" *ngIf="!submitted">
                 <mat-form-field>
-                    <input matInput placeholder="Usuario" required name="userName" [(ngModel)]="user.userName">
+                    <input matInput placeholder="Usuario" formControlName="userName">
                     <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="formControls.userName.touched && formControls.userName.invalid">
+                        <span *ngIf="formControls.userName.errors.required">Usuario Requerido</span>
+                        <span *ngIf="formControls.userName.errors.pattern">Correo Inválido</span>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Contraseña" type="password" required minlength="6" name="password"
-                        required [(ngModel)]="user.password">
+                    <input matInput placeholder="Contraseña" type="password" formControlName="password">
                     <mat-icon matSuffix>lock</mat-icon>
-
+                    <mat-error *ngIf="formControls.password.touched && formControls.password.invalid">
+                        <span *ngIf="formControls.password.errors.required">Contraseña Requerida</span>
+                        <span *ngIf="formControls.password.errors.pattern">> 6 caracteres, caracteres especiales, mayúscula y números</span>
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Contraseña" type="password" required minlength="6" name="repassword">
+                    <input matInput placeholder="Confirmar Contraseña" type="password" formControlName="repassword">
                     <mat-icon matSuffix>lock</mat-icon>
+                    <mat-error *ngIf="formControls.repassword.touched && formControls.repassword.invalid">
+                        <span *ngIf="formControls.repassword.errors.required">Contraseña Requerida</span>
+                        <span *ngIf="formControls.repassword.errors.confirmedValidator">Las contraseñas no coinciden</span>
+                    </mat-error>
                 </mat-form-field>
                 <button mat-raised-button type="submit" color="primary" class="login-button">
                     Registrarse
@@ -23,7 +33,7 @@
             </form>
             <div class="success-register" *ngIf="submitted">
                 <h4>Usuario Registrado exitosamente!</h4>
-                <button mat-raised-button color="primary" (click)="newUser()">Registrar Otro Usuario</button>
+                <button mat-raised-button color="primary" (click)="newUser()">Atrás</button>
             </div>
         </mat-card-content>
     </mat-card>
